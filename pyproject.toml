@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "shiftguard"
+version = "0.1.0"
+description = "Credit Risk ML Monitoring: Shift + Uncertainty + Decision Policy"
+authors = ["d1ntes <me@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "shiftguard", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+numpy = "^2.4.2"
+pandas = "^3.0.0"
+scikit-learn = "^1.8.0"
+scipy = "^1.17.0"
+fastapi = "^0.129.0"
+uvicorn = "^0.40.0"
+pydantic = "^2.12.5"
+sqlalchemy = "^2.0.46"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+ruff = "^0.6.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

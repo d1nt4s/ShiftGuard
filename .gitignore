@@ -1,0 +1,46 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# ===== Poetry =====
+poetry.lock
+
+# If you want to commit lockfile (обычно да), удали строку выше.
+# В большинстве проектов lockfile КОММИТЯТ.
+# Я оставил его в ignore только чтобы не мешал на старте, но лучше коммитить.
+
+# ===== Packaging / build =====
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===== Testing / coverage =====
+.pytest_cache/
+.coverage
+htmlcov/
+.covertoxin/
+.tox/
+
+# ===== IDEs =====
+.vscode/
+.idea/
+*.iml
+
+# ===== OS =====
+.DS_Store
+
+# ===== Logs / runtime =====
+*.log
+*.sqlite3
+*.db
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
