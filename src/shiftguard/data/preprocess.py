@@ -1,11 +1,24 @@
-"""
-Функции для предобработки данных перед обучением/инференсом.
-"""
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.impute import SimpleImputer
 
-from typing import Any
 
+def build_preprocessor(numeric_features, categorical_features):
 
-def preprocess_data(data: Any) -> Any:
-    """Выполнить базовую предобработку данных."""
-    raise NotImplementedError("Реализуйте предобработку данных в `preprocess_data`.")
+    numeric_pipeline = Pipeline([
+        ("imputer", SimpleImputer(strategy="median")),
+        ("scaler", StandardScaler())
+    ])
 
+    categorical_pipeline = Pipeline([
+        ("imputer", SimpleImputer(strategy="most_frequent")),
+        ("onehot", OneHotEncoder(handle_unknown="ignore"))
+    ])
+
+    preprocessor = ColumnTransformer([
+        ("num", numeric_pipeline, numeric_features),
+        ("cat", categorical_pipeline, categorical_features)
+    ])
+
+    return preprocessor
